@@ -1,0 +1,75 @@
+/*Universal Selectors*/
+/* 
+*{
+    color:yellow;
+    background-color: grey;
+} */
+
+/*Type Selectors*/
+/* h1, h2, .odd{
+    color:green;
+    background-color: red; 
+}*/
+
+/* h2{
+    background-color: green;
+    color: red;
+} */
+
+/*ID Selector*/
+
+/* #navigation{
+    color: white;
+    background-color: green;
+} */
+
+
+/* class selector */
+
+/* p.even{
+    color: blue;
+    background-color: green;
+}
+
+.even{
+    color: purple;
+    background-color: rosybrown;
+} */
+
+
+
+div>a{
+    color: royalblue;
+    background-color: sandybrown;
+}
+
+div a{
+    color: goldenrod;
+    background-color: pink;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
