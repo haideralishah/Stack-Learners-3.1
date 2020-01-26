@@ -8,8 +8,8 @@
 /*Type Selectors*/
 /* h1, h2, .odd{
     color:green;
-    background-color: red; 
-}*/
+    background-color: yellow; 
+} */
 
 /* h2{
     background-color: green;
@@ -38,7 +38,7 @@
 
 
 
-div>a{
+/* div>a{
     color: royalblue;
     background-color: sandybrown;
 }
@@ -46,6 +46,61 @@ div>a{
 div a{
     color: goldenrod;
     background-color: pink;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    heading black
+    h1 courier new
+    i red
+    b voilet
+    p intro normal
+    p small
+    */
+/* 
+
+* {
+    font-family: Arial, Verdana, sans-serif;
+}
+
+h1 {
+    font-family: "Courier New", monospace;
+}
+i {
+    color: green;
+}
+i {
+    color: red;
+}
+b {
+    color: pink;
+}
+p b {
+    color: blue !important;
+}
+p b {
+    color: violet;
+}
+p#intro {
+    font-size: 100%;
+}
+p {
+    font-size: 75%;
 }
 
 
@@ -54,6 +109,7 @@ div a{
 
 
 
+ */
 
 
 
@@ -72,4 +128,27 @@ div a{
 
 
 
+
+
+
+
+
+
+
+
+
+ body {
+    font-family: Arial, Verdana, sans-serif;
+    color: #665544;
+    padding: 10px;
+    border: 1px dashed red;
+    margin: 20px;
+}
+
+.page {
+        margin-bottom: 20px;
+    border: 1px solid #665544;
+    background-color: #efefef;
+    padding: inherit;
+}
 
