@@ -1,0 +1,30 @@
+
+
+h1{
+    /* color: yellow; */
+
+    /* color: rgb(82,88,29); */
+
+    color: #004d93;
+    /* background-color: rgb(82,88,29); */
+
+    background-color: hsla(209, 100%, 29%, 0.5);
+
+    /* color: hsl(209, 100%, 29%); */
+
+}
+
+
+/* 
+
+p{
+       color: #004d93;
+    background-color: khaki; 
+}
+
+.special{
+    color: khaki;
+    background-color: #004d93; 
+    opacity: 0.5;
+
+} */

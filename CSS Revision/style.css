@@ -1,0 +1,35 @@
+*{
+    background-color: lightgray;
+}
+
+a{
+    color: red;
+}
+
+div > a{
+    color: yellow;
+}
+
+div a{
+    background-color: purple;
+}
+
+
+
+#intro{
+    color: yellow;
+}
+
+p.description{
+    color: orange;
+}
+
+.description{
+    background-color: palegreen;
+}
+
+
+
+
+
+
