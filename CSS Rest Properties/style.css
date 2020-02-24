@@ -1,0 +1,33 @@
+@font-face{
+    font-family: 'haider';
+    src:url('Pacifico.ttf');
+}
+*{
+    font-family: "haider";
+    color: red;
+}
+
+body{
+    border: 20px solid black;
+    border-image: url("heartborder.png") 30 repeat;
+}
+
+h1{
+    text-shadow: -5px -5px 5px yellow;
+    background-color: lightgrey;
+    box-shadow: -5px 5px 15px yellow;
+    text-align: center;
+    border-radius: 50px 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

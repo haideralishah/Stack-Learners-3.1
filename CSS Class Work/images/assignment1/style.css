@@ -1,0 +1,51 @@
+body{
+    background-color: #232323;
+}
+
+.logo{
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 140px;
+}
+ul{
+    text-align: center;
+}
+
+li{
+    display: inline;
+    margin: 0 30px;
+}
+
+a{
+    color: #25decc;
+    text-decoration: none;
+    text-shadow: 1px 1px 5px #25decc;
+}
+
+.cover{
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.cover> img{
+    width:29%;
+    height: 160px;
+    border: 7px solid #ffff00;
+    border-radius: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-shadow: 2px 2px 3px 3px #25decc;
+}
+.cover> .center-cover{
+    box-shadow: 2px 2px 23px 3px #ffffff;
+}
+p{
+    text-align: center;
+    color:#25decc;
+    width: 90%;
+    margin: 30px auto;
+}
+
+
