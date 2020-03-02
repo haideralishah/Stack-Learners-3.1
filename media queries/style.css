@@ -1,0 +1,40 @@
+.parent {
+    display: flex;
+    flex-direction: row;
+}
+
+.div-1, .div-2, .div-3 {
+    flex-grow: 1;
+    height: 100px;
+}
+
+.div-1 {
+    background-color: blue;
+}
+
+.div-2 {
+    background-color: orange;
+    flex-grow: 3;
+}
+
+.div-3 {
+    background-color: yellow;
+}
+
+@media screen and (max-width: 800px) {
+    .parent {
+        flex-direction: column;
+    }
+
+    .div-1, .div-2, .div-3 {
+        flex-grow: 1;
+     
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .div-3{
+        order: -1;
+    }
+}
