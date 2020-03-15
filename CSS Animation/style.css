@@ -1,0 +1,45 @@
+/* h1{
+    color: green;
+    transition: background-color 5s, margin-left 1s, font-size 5s;
+}
+
+h1:hover{
+    background-color: yellow;
+    color: black;
+    margin-left: 50px;
+    font-size: 50px;
+} */
+
+
+
+
+
+
+/* 
+h1{
+    /* display: inline; */
+    animation-name: heading;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+    animation-delay: 2s;
+    
+    transform: rotate(-20deg);
+}
+@keyframes heading {
+    from {font-size: 32px;
+        margin-left: 0px;
+        background-color: yellow;
+     }
+    to {font-size: 12px; 
+        margin-left: 150px;
+        background-color: gray;
+    }
+}
+
+
+
+
+
+ */
+
