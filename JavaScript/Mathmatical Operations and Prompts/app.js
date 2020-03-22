@@ -201,19 +201,51 @@ prompt
 
 */
 
-var initialNumber = 1;
-var tableName = +prompt('enter table name');
+var initialNumber = 0;
+var tableName = +prompt('enter table name'); // 5 
 
-console.log(tableName + ' x ' + 1 + ' = '+ tableName * 1);
-console.log(tableName + ' x ' + 2 + ' = '+ tableName * 2);
-console.log(tableName + ' x ' + 3 + ' = '+ tableName * 3);
-console.log(tableName + ' x ' + 4 + ' = '+ tableName * 4);
-console.log(tableName + ' x ' + 5 + ' = '+ tableName * 5);
-console.log(tableName + ' x ' + 6 + ' = '+ tableName * 6);
-console.log(tableName + ' x ' + 7 + ' = '+ tableName * 7);
-console.log(tableName + ' x ' + 8 + ' = '+ tableName * 8);
-console.log(tableName + ' x ' + 9 + ' = '+ tableName * 9);
-console.log(tableName + ' x ' + 10 + ' = '+ tableName * 10);
+
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+console.log(tableName + ' x ' + initialNumber + ' = ' + initialNumber++ * tableName);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// console.log(tableName + ' x ' + 1 + ' = '+ tableName * 1);
+// console.log(tableName + ' x ' + 2 + ' = '+ tableName * 2);
+// console.log(tableName + ' x ' + 3 + ' = '+ tableName * 3);
+// console.log(tableName + ' x ' + 4 + ' = '+ tableName * 4);
+// console.log(tableName + ' x ' + 5 + ' = '+ tableName * 5);
+// console.log(tableName + ' x ' + 6 + ' = '+ tableName * 6);
+// console.log(tableName + ' x ' + 7 + ' = '+ tableName * 7);
+// console.log(tableName + ' x ' + 8 + ' = '+ tableName * 8);
+// console.log(tableName + ' x ' + 9 + ' = '+ tableName * 9);
+// console.log(tableName + ' x ' + 10 + ' = '+ tableName * 10);
 
 
 
