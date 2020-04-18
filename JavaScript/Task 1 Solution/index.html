@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="container">
+
+        <div id="screen">0</div>
+
+        <div class="btn-containers">
+            <button onClick="assignNumber(7)">7</button>
+            <button onClick="assignNumber(8)">8</button>
+            <button onClick="assignNumber(9)">9</button>
+            <button onClick="assignOperator('/')">÷</button>
+        </div>
+
+        <div class="btn-containers">
+            <button onClick="assignNumber(4)">4</button>
+            <button onClick="assignNumber(5)">5</button>
+            <button onClick="assignNumber(6)">6</button>
+            <button onClick="assignOperator('*')">x</button>
+        </div>
+
+        <div class="btn-containers">
+            <button onClick="assignNumber(1)">1</button>
+            <button onClick="assignNumber(2)">2</button>
+            <button onClick="assignNumber(3)">3</button>
+            <button onClick="assignOperator('-')">-</button>
+        </div>
+
+        <div class="btn-containers">
+            <button onClick='cancelAssignment()'>c</button>
+            <button onClick="assignNumber(0)">0</button>
+            <button onClick="evaluateNumbers()">=</button>
+            <button onClick="assignOperator('+')">+</button>
+        </div>
+
+
+
+
+
+    </div>
+    
+
+    <script src="app.js"></script>
+</body>
+</html>

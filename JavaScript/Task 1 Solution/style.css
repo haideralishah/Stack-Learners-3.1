@@ -1,0 +1,26 @@
+#container{
+    width: 260px;
+    height: 205px;
+    /* background-color: red; */
+}
+
+#screen{
+    width: 94%;
+    margin: 0 auto;
+    height: 35px;
+    background-color: #efebeb;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    text-align: right;
+    font-size: 32px;
+}
+
+.btn-containers{
+    text-align: center;
+}
+
+.btn-containers button{
+    width: 60px;
+    height: 40px;
+
+}

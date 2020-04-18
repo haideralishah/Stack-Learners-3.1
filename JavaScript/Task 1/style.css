@@ -1,0 +1,25 @@
+.container{
+    width: 108px;
+    height: 120px;
+    /* border: 1px solid red; */
+}
+
+#screen{
+    width: 95%;
+    height: 20px;
+    background-color: #efebeb;
+    margin-bottom: 5px;
+    text-align: right;
+    padding-right: 5px;
+}
+.btn-container{
+    
+    text-align: justify;
+}
+.btn-container button{
+    width: 24px;;
+}
+
+/* button.btn-equal{
+    width: 52px;
+} */

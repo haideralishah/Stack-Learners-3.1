@@ -145,3 +145,20 @@ array properties
 
 
 
+var userName = 5;
+userName = String(userName);
+
+
+
+var userName = "5";
+userName = Number(userName);
+
+var abc = 5;
+abc = abc + 3;
+
+
+
+function greetUser(userName){
+    console.log("welcome " + userName)
+}
+
