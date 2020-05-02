@@ -215,9 +215,9 @@ String()
 
 
 
-var num = 53.56744455;
-num = num.toFixed(3);
-console.log(num);
+// var num = 53.56744455;
+// num = num.toFixed(3);
+// console.log(num);
 
 
 
@@ -232,3 +232,190 @@ console.log(num);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var userName = 'Haider Ali Shah';
+// var firstName = userName.slice(0, 6);
+// var middleName = userName.slice(7,10);
+// var lastName = userName.slice(11);
+
+// console.log(firstName);
+// console.log(middleName);
+// console.log(lastName);
+
+// console.log(userName.length);
+
+
+
+
+
+
+
+
+
+
+
+// var discountedMonths = ['jan', 'feb', 'mar', 'apr', 'may'];
+// var h1 = document.getElementById('discount-info');
+
+// var userBirthMonth = prompt('please let us know your birth month for surprise discount');
+
+// userBirthMonth = userBirthMonth.slice(0, 3);
+// userBirthMonth = userBirthMonth.toLowerCase();
+
+
+// /*
+// Using loops
+// */
+
+// var isItDiscountedMonth = false;
+
+// for (var i = 0; i < discountedMonths.length; i++) {
+//     if (discountedMonths[i] === userBirthMonth) {
+//         isItDiscountedMonth = true;
+//         break;
+//     }
+// }
+
+// if (isItDiscountedMonth) {
+//     h1.innerHTML = 'Congrats! You got the discount.'
+// }
+// else{
+//     h1.innerHTML= 'Sorry! No discounts are available.'
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Using indexOf() method
+*/
+
+// var isItDiscountedMonth = discountedMonths.indexOf(userBirthMonth); 
+
+// if(isItDiscountedMonth >= 0){
+//     h1.innerHTML= 'Congrats! You got the discount.'
+// }
+// else{
+//     h1.innerHTML= 'Sorry! No discounts are available.'
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // a quick brown fox jumps over the lazy dog.
+// var userInfo = prompt('Please enter some text');
+
+// console.log(userInfo);
+
+// for (var i = 0; i < userInfo.length; i++) {
+//     var char2 = userInfo.slice(i, i + 2);
+//     console.log(char2);
+//     if(char2 === '  '){
+//         console.log('You have double spaces in your information. Please correct it.');
+//         break;
+//     };
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var dummyText = 'a quick World War II brown fox jumps over the lazy dog. World War II a quick brown fox jumps over the World War II lazy dog. a quick brown fox jumps over the lazy dog. a quick brown fox World War II jumps over the lazy dog.';
+
+var replacedText = 'the Second World War';
+var searchText = 'World War II';
+
+
+
+dummyText = dummyText.replace(/World War II/g, replacedText);
+console.log(dummyText.charAt(5));
+console.log(dummyText[5]);
+
+
+
+/*
+Using indexOf() method
+*/
+// var foundIndex = dummyText.indexOf(searchText);
+// if (foundIndex >= 0) {
+//     dummyText = dummyText.slice(0, foundIndex) + replacedText + dummyText.slice(foundIndex + 12);
+// }
+// console.log(dummyText);
+
+
+/*
+Using loops
+*/
+
+// for (var i = 0; i < dummyText.length; i++) {
+//     var searchText = dummyText.slice(i, i + 12);
+//     if (searchText === 'World War II') {
+//         dummyText = dummyText.slice(0, i) + replacedText + dummyText.slice(i + 12);
+//     }
+// }
+// console.log(dummyText);
