@@ -168,24 +168,105 @@ localStorage.getItem(key);
 var h1 = document.getElementById('greet-user');
 var usernameEl = document.getElementById('username');
 var rollnumberEl = document.getElementById('rollnumber');
-
+var allStudents = [];
 
 function saveUser() {
+
     var student = {
         stName: usernameEl.value,
         rollnumber: rollnumberEl.value
     }
-    console.log(student);
 
-    console.log(JSON.stringify(student));
-    localStorage.setItem('studentName', JSON.stringify(student));
+    var savedStudents = localStorage.getItem("studentName");
+
+    if (savedStudents) {
+        savedStudents = JSON.parse(savedStudents);
+        allStudents = savedStudents;
+    }
+
+    allStudents.push(student);
+
+    student = JSON.stringify(allStudents);
+
+    localStorage.setItem('studentName', student);
+
 }
 
 
 
-var stName = localStorage.getItem('studentName');
 
-if (stName) {
-    stName = JSON.parse(stName)
-    h1.innerHTML = stName.stName;
-}
+
+
+
+
+
+
+
+
+
+
+
+// var stName = localStorage.getItem('studentName');
+
+// if (stName) {
+//     stName = JSON.parse(stName)
+//     h1.innerHTML = stName.stName;
+// }
+
+
+
+
+
+// var username = 'haider';
+
+// localStorage.setItem('username', username);
+
+
+// var courseName = localStorage.getItem("courseName");
+// console.log(courseName);
+
+// var userName = localStorage.getItem("username");
+// console.log(userName);
+
+
+
+
+// var user = {
+//     name: 'haider',
+//     rollnumber: 2643,
+//     courseName: "JS"
+// }
+// console.log(user);
+// user = JSON.stringify(user);
+// console.log(user);
+
+// localStorage.setItem("studentData", user);
+
+
+// var student = localStorage.getItem('studentData');
+
+// student = JSON.parse(student);
+
+// console.log(student.courseName);
+
+
+
+// var fruits = ['apple', 'bnana', 'mango'];
+
+// var fruits = ['pineapple', 'guava', 'grapes'];
+
+
+// fruits = JSON.stringify(fruits);
+
+
+// localStorage.setItem('fruits', fruits);
+
+
+// var fruits = localStorage.getItem('fruits');
+
+// fruits = JSON.parse(fruits);
+
+// console.log(fruits[0])
+
+
+
