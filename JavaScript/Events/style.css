@@ -1,0 +1,26 @@
+img{
+    width: 200px;
+    height: 200px;
+    
+}
+
+#error-msg{
+    color: red;
+    
+}
+
+
+.hidden{
+    display: none;
+}
+
+.special{
+    color:green;
+    background-color: lightpink;
+    font-size: 40px;
+    font-family: cursive;
+}
+
+.borders{
+    border:5px dashed red;
+}
