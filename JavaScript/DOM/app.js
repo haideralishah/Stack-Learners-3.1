@@ -1,3 +1,15 @@
+/*
+document.getElementById();
+
+document.getElementsByTagName();
+
+document.getElementsByClassName();
+
+document.childNodes;
+*/
+
+
+
 
 
 // var secondLastP = document.getElementById('second-last');
@@ -83,6 +95,53 @@
 
 
 
+// var div1 = document.getElementById('div-1');
+// var div2 = div1.childNodes[1].childNodes;
+// console.log(div2)
+// var pCounter = 0;
+// for (var i = 0; i < div2.length; i++) {
+//     // to changing all para
+
+//     // if (div2[i].nodeType == 1) {
+//     //     div2[i].innerHTML = 'new text ' + i;
+//     // }
+
+
+
+//     // to changing second para
+//     if (div2[i].nodeType == 1) {
+//         pCounter++;
+
+//     }
+//     if (pCounter == 2) {
+//         div2[i].innerHTML = 'only second para is changed.'
+//         break;
+//     }
+
+// }
+
+
+// console.log(div1.childNodes[1].childNodes)
+
+// console.log(div1.childNodes[1].childNodes[3])
+
+// div1.childNodes[1].childNodes[3].innerHTML =  'New Text'
+
+
+
+
+
+
+
+
+
+
+
+// var div1 = document.childNodes[1].childNodes[2].childNodes[5];
+
+// console.log(div1.childNodes[0].nodeType)
+
+// console.log(div1.nodeType)
 
 
 
@@ -104,13 +163,9 @@
 
 
 
-/*
-1 show 3 unfolded cards
-2 click on king 
-3 once user clicks the card it will generate a random number range 1 to 3
-4 matching the random number change that card with king and other cards with joker
-5 match user click and king card. 
-6 show message he wons or lost
+document.childNodes[1].childNodes[2].childNodes[7].childNodes[2].nodeValue = '.';
+
+// console.log(document.childNodes[1].childNodes[2].childNodes[7].childNodes[1].nodeName);
 
 
-*/
+console.log(document.childNodes[1].childNodes[2].childNodes[7].childNodes);
