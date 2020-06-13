@@ -1,4 +1,5 @@
 /*
+
 document.getElementById();
 
 document.getElementsByTagName();
@@ -6,6 +7,26 @@ document.getElementsByTagName();
 document.getElementsByClassName();
 
 document.childNodes;
+
+nodeType 1  element
+nodeType 3  text
+
+nodeValue for text node
+
+nodeName for elements name in capital
+
+
+
+document.createElement();
+document.createTextNode();
+appendChild();
+
+
+
+
+.hasAttribute()
+.getAttribute()
+.setAttribute()
 */
 
 
@@ -163,9 +184,194 @@ document.childNodes;
 
 
 
-document.childNodes[1].childNodes[2].childNodes[7].childNodes[2].nodeValue = '.';
+// document.childNodes[1].childNodes[2].childNodes[7].childNodes[2].nodeValue = '.';
 
 // console.log(document.childNodes[1].childNodes[2].childNodes[7].childNodes[1].nodeName);
+// document.childNodes[1].childNodes[2].childNodes[7].childNodes[1].innerHTML = 'this is emphesis'
+// console.log(document.childNodes[1].childNodes[2].childNodes[7].childNodes);
 
 
-console.log(document.childNodes[1].childNodes[2].childNodes[7].childNodes);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+    <p>
+        This is
+        <em>important</em>
+        !
+    </p>
+*/
+
+// var body = document.childNodes[1].childNodes[2];
+// var p = document.createElement('p');
+
+// var lastTextNode = document.createTextNode(' !');
+// var firstTextNode = document.createTextNode('This is ');
+
+// var em = document.createElement('em');
+// var emTextNode = document.createTextNode('important');
+// em.appendChild(emTextNode);
+
+
+// p.appendChild(firstTextNode);
+// p.appendChild(em);
+// p.appendChild(lastTextNode);
+
+// console.log(p)
+
+// body.appendChild(p)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var body = document.childNodes[1].childNodes[2];
+
+// var h1 = document.createElement('h1');
+
+// var hello = document.createTextNode('hello world!');
+
+// h1.appendChild(hello);
+
+// // console.log(h1, body)
+
+// body.appendChild(h1);
+
+// console.log(body.childNodes)
+
+
+/*
+1. h1 shopping card
+2. create input form with add button
+3. create empty ul
+4. clicking on add button first check if input is filled or not
+5. if not filled show message that field is empty
+6. make li with text value of input and append that in UL.
+*/
+
+
+
+
+// var item = document.getElementById('item');
+// var ul = document.childNodes[1].childNodes[2].childNodes[9]
+
+// function addItemToCart() {
+//     if (item.value === '') {
+//         console.log('Field is empty');
+//     }
+//     else {
+//         var li = document.createElement('li');
+//         var textNode = document.createTextNode(item.value);
+
+//         var button = document.createElement('button');
+//         var buttonTextNode = document.createTextNode("Delete");
+//         button.appendChild(buttonTextNode);
+
+//         li.appendChild(textNode);
+//         li.appendChild(button);
+
+//         ul.appendChild(li);
+//         item.value = '';
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var h1 = document.childNodes[1].childNodes[2].childNodes[7];
+
+
+var isID = h1.hasAttribute('id');
+var isClass = h1.hasAttribute('class');
+
+
+h1.setAttribute('title', 'We are learning attr.');
+h1.setAttribute('onclick', 'alert("we just learnt Attr")');
+
+var titleValue = h1.getAttribute('title');
+console.log(isID, isClass, titleValue);
+
+
