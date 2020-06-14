@@ -8,6 +8,17 @@ document.getElementsByClassName();
 
 document.childNodes;
 
+
+child.parentNode
+
+
+parantNode.firstChild
+parantNode.lastChild
+
+.nextSibling
+.previousSibling
+
+
 nodeType 1  element
 nodeType 3  text
 
@@ -303,50 +314,48 @@ appendChild();
 
 
 
-// var item = document.getElementById('item');
-// var ul = document.childNodes[1].childNodes[2].childNodes[9]
+var item = document.getElementById('item');
+var ul = document.childNodes[1].childNodes[2].childNodes[9]
 
-// function addItemToCart() {
-//     if (item.value === '') {
-//         console.log('Field is empty');
-//     }
-//     else {
-//         var li = document.createElement('li');
-//         var textNode = document.createTextNode(item.value);
+function addItemToCart() {
+    if (item.value === '') {
+        console.log('Field is empty');
+    }
+    else {
+        var li = document.createElement('li');
+        var textNode = document.createTextNode(item.value);
 
-//         var button = document.createElement('button');
-//         var buttonTextNode = document.createTextNode("Delete");
-//         button.appendChild(buttonTextNode);
-
-//         li.appendChild(textNode);
-//         li.appendChild(button);
-
-//         ul.appendChild(li);
-//         item.value = '';
-//     }
-// }
+        var button = document.createElement('button');
+        var buttonTextNode = document.createTextNode("Delete");
+        button.appendChild(buttonTextNode);
+        button.setAttribute('onclick', 'deleteItem(this)')
 
 
+        var buttonEdit = document.createElement('button');
+        var buttonTextNodeEdit = document.createTextNode("Edit");
+        buttonEdit.appendChild(buttonTextNodeEdit);
+        buttonEdit.setAttribute('onclick', 'editItem(this)')
 
 
+        li.appendChild(textNode);
+        li.appendChild(button);
+        li.appendChild(buttonEdit);
 
+        ul.appendChild(li);
+        item.value = '';
+    }
+}
 
+function deleteItem(targetEl) {
+    // console.log('delete is called', targetEl.parentNode.parentNode)
+    var removeTarget = targetEl.parentNode;
+    var parentUl = targetEl.parentNode.parentNode;
+    parentUl.removeChild(removeTarget);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function editItem(targetEl) {
+    console.log(targetEl);
+}
 
 
 
@@ -361,17 +370,171 @@ appendChild();
 
 
 
-var h1 = document.childNodes[1].childNodes[2].childNodes[7];
 
 
-var isID = h1.hasAttribute('id');
-var isClass = h1.hasAttribute('class');
 
 
-h1.setAttribute('title', 'We are learning attr.');
-h1.setAttribute('onclick', 'alert("we just learnt Attr")');
 
-var titleValue = h1.getAttribute('title');
-console.log(isID, isClass, titleValue);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var h1 = document.childNodes[1].childNodes[2].childNodes[7];
+// var h1ByID = document.getElementById('hello')
+
+
+
+
+// var isID = h1.hasAttribute('id');
+// var isClass = h1.hasAttribute('class');
+
+// var titleValue = h1.getAttribute('title');
+// var idValue = h1.getAttribute('id');
+// console.log(h1, h1ByID)
+
+// console.log(isID, isClass, titleValue, idValue);
+
+
+
+
+// h1.setAttribute('title', 'We are learning attr.');
+// h1.setAttribute('onclick', 'invokeFunc()');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var div1 = document.getElementById('div-1');
+// var div2 = div1.childNodes[1];
+// var firstP = div2.childNodes[1];
+
+
+
+// console.log(firstP.nextSibling.nextSibling);
+// console.log(div2.lastChild.previousSibling.previousSibling.previousSibling);
+
+
+// console.log(div1.firstChild);
+
+// console.log(div2.lastChild);
+// console.log(div1.lastChild);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var div1 = document.getElementById('div-1');
+// var div2 = div1.childNodes[1];
+// var firstP = div2.childNodes[1];
+
+
+// var h1 = document.createElement('h1');
+// var headingText = document.createTextNode("Hello DOM");
+
+// h1.appendChild(headingText);
+
+
+// div2.appendChild(h1);
+
+// console.log(firstP.nextSibling.nextSibling.nextSibling.nextSibling)
+// var targetNode = firstP.nextSibling.nextSibling.nextSibling.nextSibling
+
+// div2.insertBefore(h1, targetNode);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var specialPara = document.getElementById('special');
+
+// console.log(specialPara.parentNode)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var div2 = document.getElementById('div-2');
+// var specialPara = document.getElementById('special');
+
+// div2.removeChild(specialPara);
 
