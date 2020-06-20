@@ -316,7 +316,8 @@ appendChild();
 
 var item = document.getElementById('item');
 var ul = document.childNodes[1].childNodes[2].childNodes[9]
-
+var addButton = document.getElementById('add-btn');
+var editItemNode;
 function addItemToCart() {
     if (item.value === '') {
         console.log('Field is empty');
@@ -354,11 +355,22 @@ function deleteItem(targetEl) {
 }
 
 function editItem(targetEl) {
-    console.log(targetEl);
+    console.log(targetEl.previousSibling.previousSibling.nodeValue);
+    editItemNode = targetEl;
+    item.value = targetEl.previousSibling.previousSibling.nodeValue;
+    addButton.innerHTML = 'Save';
+    addButton.setAttribute('onclick', 'saveItem()')
+
 }
 
-
-
+function saveItem() {
+    console.log('hello editing', editItemNode);
+    editItemNode.previousSibling.previousSibling.nodeValue = item.value;
+    addButton.innerHTML = 'Add';
+    addButton.setAttribute('onclick', 'addItemToCart()');
+    item.value = '';
+    editItemNode = undefined;
+}
 
 
 
