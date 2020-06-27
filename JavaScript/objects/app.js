@@ -129,20 +129,133 @@
 
 
 
-var cars = {
-    model: "Corolla",
-    price: 500000,
-    power: "1300cc",
-    company: "Toyota"
+// var cars = {
+//     model: "Corolla",
+//     price: 500000,
+//     power: "1300cc",
+//     company: "Toyota"
+// }
+
+// console.log(cars);
+
+// delete cars.price;
+// delete cars.company;
+
+// if('company' in cars){
+//     console.log('company prop exist in cars object.')
+// }
+
+// console.log(cars)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var products = [];
+var item = {
+    name: 'xyz',
+    desc: 'xyz',
+    price: 250
 }
 
-console.log(cars);
 
-delete cars.price;
-delete cars.company;
+function Product(productName, productDesc, productPrice) {
+    this.name = productName;
+    this.desc = productDesc;
+    this.price = productPrice;
 
-if('company' in cars){
-    console.log('company prop exist in cars object.')
 }
 
-console.log(cars)
+Product.prototype.brand = 'HP';
+Product.prototype.working = function (num) {
+    console.log('it is working fine.' + num);
+}
+
+var productObj1 = new Product("laptop", "dell i7", '50000');
+var productObj2 = new Product("laptop", "dell i7", '50000');
+var productObj3 = new Product("laptop", "dell i7", '50000');
+
+productObj1.working(1);
+productObj2.working(2);
+productObj3.working(3);
+
+var isPriceExist = "price" in productObj1;
+var isBrandExist = "brand" in productObj1;
+var isBrandOwnProp = productObj1.hasOwnProperty('brand');
+
+console.log(isPriceExist, isBrandExist, isBrandOwnProp)
+// productObj3.brand = 'Dell';
+// console.log(productObj3)
+// console.log(productObj3.brand)
+
+// function addProduct() {
+//     var productObj = new Product(nameEl.value, descEl.value, priceEl.value);
+//     products.push()
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
