@@ -1,0 +1,28 @@
+.slider-image{
+    width: 70%;
+    height:400px;
+    position: absolute;
+    left: 15%;
+    z-index: 0;
+}
+
+.arrows{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top:190px;
+}
+
+.right-arrow{
+    width: 47px;
+    height: 47px;
+    left: 84%;
+}
+
+.left-arrow{
+    left:13%;
+}
+
+.top-img{
+    z-index: 5;
+}

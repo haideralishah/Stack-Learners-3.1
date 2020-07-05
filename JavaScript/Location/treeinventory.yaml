@@ -1,0 +1,724 @@
+openapi: 3.0.0
+info:
+  title: TreeInventory
+  version: '1.0'
+  description: Off-site registration of  plant locations
+  contact:
+    name: Jorgo Miridis
+    email: jorgo.miridis@plant-for-the-planet.org
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /plantLocations:
+    post:
+      summary: Create a PlantLocation
+      tags: []
+      operationId: post-plant_location
+      description: Creates a PlantLocation object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlantLocationCreateRequest'
+            examples:
+              without image data:
+                value:
+                  geometry: {}
+                  coordinates:
+                    - index: '0'
+                      description: some description
+                    - index: '1'
+                      description: null
+                  plantDate: '2020-02-13'
+                  species:
+                    - descriptor: Apples
+                      treeCount: 50
+                    - descriptor: Mahogany
+                      treeCount: 200
+                  captureMode: on-site
+              with image data:
+                value:
+                  geometry: {}
+                  coordinates:
+                    - index: '0'
+                      imageFile: 'data:image/png;base64,iVBORw...'
+                      description: some description
+                    - index: '1'
+                      imageFile: 'data:image/png;base64,eA8QuUcX...'
+                      description: null
+                  plantDate: '2020-02-13'
+                  species:
+                    - descriptor: Apples
+                      treeCount: 50
+                    - descriptor: Mahogany
+                      treeCount: 200
+                  captureMode: on-site
+          multipart/form-data:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlantLocationCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    id: loc_sK8wDLyz6AJR30WuqdA2wR7X7nlM
+                    coordinates:
+                      '0':
+                        coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+                        imageName: null
+                        status: pending
+                      '1':
+                        coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+                        imageName: null
+                        status: pending
+                    status: partial
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                description: the form schema containing the errors
+              examples:
+                example-1: {}
+        '401':
+          description: The caller is not authenticated
+          content:
+            application/json:
+              schema:
+                type: string
+                description: The message describing the authorization violation
+              examples:
+                example:
+                  value: The caller could not be authenticated
+    parameters: []
+  '/plantLocations/{guid}':
+    parameters:
+      - schema:
+          type: string
+        name: guid
+        in: path
+        required: true
+        description: the guid of the PlantLocation
+    get:
+      summary: Retrieve a PlantLocation
+      tags: []
+      responses:
+        '200':
+          description: Returns a PlantLocation object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlantLocation'
+              examples:
+                partially uploaded:
+                  value:
+                    id: loc_sK8wDLyz6AJR30WuqdA2wR7X7nlM
+                    geometry: {}
+                    coordinates:
+                      '0':
+                        coordinate: coord_wJMJ5DWXfAkD1GqcZ2alpl5q
+                        imageName: 5bc73190d8ea1943769413.png
+                        description: some description
+                        status: complete
+                      '1':
+                        coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+                        imageName: null
+                        description: some description
+                        status: pending
+                    status: partial
+                fully uploaded:
+                  value:
+                    id: loc_sK8wDLyz6AJR30WuqdA2wR7X7nlM
+                    geometry: {}
+                    coordinates:
+                      '0':
+                        coordinate: coord_wJMJ5DWXfAkD1GqcZ2alpl5q
+                        imageName: 5bc73190d8ea1943769413.png
+                        description: some description
+                        status: complete
+                      '1':
+                        coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+                        imageName: 5bd8177cad1d8442592396.jpeg
+                        description: some description
+                        status: complete
+                    status: complete
+        '401':
+          description: The caller is not authorized to access the PlantLocation or the caller is not authenticated at all.
+      operationId: get-plant_location-guid
+      description: Retrieves a PlantLocation object
+      parameters: []
+    put:
+      summary: Update a PlantLocation
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlantLocation'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                example-1:
+                  value: The authenticated user is not authorized to update the provided plant location
+      operationId: put-plant_location-guid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlantLocationUpdateRequest'
+            examples:
+              example-1:
+                value:
+                  geometry: {}
+      description: Updates a PlantLocation object
+    delete:
+      summary: Delete a PlantLocation
+      tags: []
+      responses:
+        '200':
+          description: |+
+            Returns the deleted PlantLocation object.
+
+
+      operationId: delete-plant_location-guid
+      description: Deletes a PlantLocation object.
+  '/plantLocations/{locationId}/coordinates/{coordinateId}':
+    parameters:
+      - schema:
+          type: string
+        name: locationId
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: coordinateId
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-plant_locations-id-coordinates
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlantLocationCoordinateResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlantLocationCoordinateRequest'
+            examples:
+              example-1:
+                value:
+                  index: '0'
+                  coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+                  description: some description
+                  imageFile: 'data:image/png;base64,iVBORw...'
+      description: Update the PlantLocationCoordinate specified by coordinateId
+    get:
+      summary: ''
+      operationId: get-plant_locations-id-coordinates
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    GeometryDefinitions:
+      position:
+        description: A single position
+        type: array
+        minItems: 2
+        items:
+          - type: number
+          - type: number
+      positionArray:
+        description: An array of positions
+        type: array
+        items:
+          $ref: '#/components/schemas/GeometryDefinitions/position'
+      lineString:
+        description: An array of two or more positions
+        allOf:
+          - $ref: '#/components/schemas/GeometryDefinitions/positionArray'
+          - minItems: 2
+      linearRing:
+        description: An array of four positions where the first equals the last
+        allOf:
+          - $ref: '#/components/schemas/GeometryDefinitions/positionArray'
+          - minItems: 4
+      polygon:
+        description: An array of linear rings
+        type: array
+        items:
+          $ref: '#/components/schemas/GeometryDefinitions/linearRing'
+    PlantLocationCoordinateResponse:
+      title: PlantLocationCoordinateResponse
+      type: object
+      x-examples:
+        example-1:
+          id: loc_sK8wDLyz6AJR30WuqdA2wR7X7nlM
+          coordinates:
+            '0':
+              coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+              imageName: 5bc73190d8ea1943769413.png
+              status: complete
+          status: partial
+        example-2:
+          id: loc_sK8wDLyz6AJR30WuqdA2wR7X7nlM
+          coordinates:
+            '1':
+              coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+              imageName: 5bc73190d8ea1943769413.png
+              status: complete
+          status: partial
+      properties:
+        index:
+          type: string
+        coordinate:
+          $ref: '#/components/schemas/CoordinateGUID'
+        imageName:
+          type: string
+        status:
+          $ref: '#/components/schemas/PlantLocationCoordinateStatus'
+      required:
+        - index
+        - imageName
+        - status
+    PlantLocationCreateResponse:
+      title: PlantLocationResponse
+      type: object
+      x-examples:
+        example-1:
+          id: loc_sK8wDLyz6AJR30WuqdA2wR7X7nlM
+          coordinates:
+            '0':
+              coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+              imageName: null
+              status: pending
+            '1':
+              coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+              imageName: null
+              status: pending
+          status: partial
+      description: ''
+      properties:
+        id:
+          type: string
+          example: loc_sK8wDLyz6AJR30WuqdA2wR7X7nlM
+        coordinates:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlantLocationCoordinate'
+        status:
+          $ref: '#/components/schemas/PlantLocationStatus'
+      required:
+        - id
+        - coordinates
+        - status
+    PlantLocationCoordinate:
+      title: PlantLocationCoordinate
+      type: object
+      x-examples:
+        example-1:
+          index: '0'
+          coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+          imageName: null
+          status: pending
+        example-2:
+          index: '0'
+          coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+          imageName: 5bc73190d8ea1943769413.png
+          status: complete
+      properties:
+        index:
+          type: string
+          example: '0'
+          description: The index of the coordinate the image corresponds to starting with zero
+        coordinate:
+          $ref: '#/components/schemas/CoordinateGUID'
+        imageName:
+          type: string
+          example: 5bc73190d8ea1943769413.png
+          description: The image name will be null if no image has been uploaded
+        status:
+          $ref: '#/components/schemas/PlantLocationCoordinateStatus'
+      required:
+        - index
+        - coordinate
+        - status
+    PlantLocation:
+      title: The PlantLocation object
+      type: object
+      x-examples:
+        status partial:
+          id: loc_sK8wDLyz6AJR30WuqdA2wR7X7nlM
+          plantProject: proj_bBIQoUNyMkFL36aesi2a3a1d
+          geometry:
+            type: Polygon
+            coordinates:
+              - - - -90.66840648651123
+                  - 18.682146549182555
+                - - -90.6542444229126
+                  - 18.682146549182555
+                - - -90.6542444229126
+                  - 18.688895002112325
+                - - -90.66840648651123
+                  - 18.688895002112325
+                - - -90.66840648651123
+                  - 18.682146549182555
+          coordinates:
+            '0':
+              index: '0'
+              coordinate: coord_wJMJ5DWXfAkD1GqcZ2alpl5q
+              imageName: 5bc73190d8ea1943769413.png
+              description: some description
+              status: complete
+            '1':
+              index: '1'
+              coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+              imageName: null
+              description: some description
+              status: pending
+          plantDate: '2020-02-13'
+          species:
+            - descriptor: Apples
+              treeCount: 50
+            - descriptor: Mahogany
+              treeCount: 200
+          captureMode: on-site
+          status: partial
+        status complete:
+          id: loc_sK8wDLyz6AJR30WuqdA2wR7X7nlM
+          plantProject: proj_bBIQoUNyMkFL36aesi2a3a1d
+          geometry:
+            type: Polygon
+            coordinates:
+              - - - -90.66840648651123
+                  - 18.682146549182555
+                - - -90.6542444229126
+                  - 18.682146549182555
+                - - -90.6542444229126
+                  - 18.688895002112325
+                - - -90.66840648651123
+                  - 18.688895002112325
+                - - -90.66840648651123
+                  - 18.682146549182555
+          coordinates:
+            '0':
+              index: '0'
+              coordinate: coord_wJMJ5DWXfAkD1GqcZ2alpl5q
+              imageName: 5bc73190d8ea1943769413.png
+              description: some description
+              status: complete
+            '1':
+              index: '1'
+              coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+              imageName: 5bd8177cad1d8442592396.jpeg
+              description: some description
+              status: complete
+          plantDate: '2020-02-13'
+          species:
+            - descriptor: Apples
+              treeCount: 50
+            - descriptor: Mahogany
+              treeCount: 200
+          captureMode: on-site
+          status: complete
+      description: |-
+        A PlantLocation represents a geographical location on earth, where trees have been planted. It is defined by the coordinates of either a point or a polygon, pictures taken at those coordinates, the number and type of trees planted as well as the date when the plantation has taken place.
+
+        This information can be captured on-site (the planting site) and uploaded later into the system. To prevent a single, large upload which could take very long and be interrupted, the upload of images is performed one by one. During this process the PlantLocation object might have a status of `pending` or `partial` and will only have a status of `complete` when all images have been uploaded.
+      properties:
+        id:
+          $ref: '#/components/schemas/LocationGUID'
+        plantProject:
+          $ref: '#/components/schemas/ProjectGUID'
+        deviceGeometry:
+          $ref: '#/components/schemas/LocationGeometry'
+        locationGeometry:
+          $ref: '#/components/schemas/LocationGeometry'
+        coordinates:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlantLocationCoordinate'
+        plantDate:
+          type: string
+          format: date
+          example: '2018-03-20'
+        species:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/SpeciesRecord'
+        captureMode:
+          type: string
+          enum:
+            - off-site
+            - on-site
+          example: off-site
+          description: The capture mode must be be either `on-site` or `off-site` when a new PlantLocation is captured. An `off-site` registration can later be changed to `on-site` but never the other way around.
+        status:
+          $ref: '#/components/schemas/PlantLocationStatus'
+      required:
+        - deviceGeometry
+        - locationGeometry
+        - coordinates
+        - plantDate
+        - species
+        - captureMode
+        - status
+    PlantLocationStatus:
+      type: string
+      title: PlantLocationStatus
+      enum:
+        - pending
+        - partial
+        - complete
+      example: pending
+      x-examples:
+        example-1: partial
+      description: ''
+    PlantLocationCoordinateStatus:
+      type: string
+      title: PlantLocationCoordinateStatus
+      enum:
+        - pending
+        - complete
+      example: pending
+      x-examples:
+        example-1: pending
+    PlantLocationCoordinateRequest:
+      title: PlantLocationCoordinateRequest
+      type: object
+      x-examples:
+        example-1:
+          index: '0'
+          coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+          description: some description
+        example-2:
+          index: '0'
+          coordinate: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+          imageFile: 'data:image/png;base64,fCqJUJSBRgwXt...'
+      properties:
+        index:
+          type: string
+        coordinate:
+          $ref: '#/components/schemas/CoordinateGUID'
+        imageFile:
+          type: string
+          description: "If 'imageFile' is provided, it must contain a valid base64 encoded image and may not be null. If 'imageFile' is not provided, the currently uploaded image will not be modified."
+        description:
+          type: string
+          description: "If 'description' is provided it may either contain \na string or be null. A null value will remove the current description. If 'description' is not provided, the current description will not be modified."
+      required:
+        - index
+        - coordinate
+    PlantLocationCreateRequest:
+      title: The PlantLocationCreateRequest Object
+      type: object
+      x-examples:
+        example:
+          plantProject: proj_bBIQoUNyMkFL36aesi2a3a1d
+          geometry:
+            type: Polygon
+            coordinates:
+              - - - -90.66840648651123
+                  - 18.682146549182555
+                - - -90.6542444229126
+                  - 18.682146549182555
+                - - -90.6542444229126
+                  - 18.688895002112325
+                - - -90.66840648651123
+                  - 18.688895002112325
+                - - -90.66840648651123
+                  - 18.682146549182555
+          coordinates:
+            '0':
+              index: '0'
+              description: some description
+            '1':
+              index: '1'
+              description: some other description
+          plantDate: '2020-02-13'
+          species:
+            - descriptor: Apples
+              treeCount: 50
+            - descriptor: Mahogany
+              treeCount: 200
+          captureMode: on-site
+      description: |-
+        Contains the geometry and details about each coordinates.
+
+        The number of coordinates defined under the attribute `coordinates` must match the number of coordinates defined in the attribute `geometry` minus 1 (the first and the last point inside the geometry are always the same). Also the indexes `0`, `1`, ... defined under the attribute `coordinates` must match the order in which they occur inside the `geometry` attribute.
+      properties:
+        plantProject:
+          $ref: '#/components/schemas/ProjectGUID'
+        geometry:
+          $ref: '#/components/schemas/LocationGeometry'
+        coordinates:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: string
+              description:
+                type: string
+            required:
+              - index
+        plantDate:
+          type: string
+          format: date
+          pattern: ^
+          example: '2018-03-20'
+        species:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeciesRecord'
+        captureMode:
+          type: string
+          enum:
+            - on-site
+            - off-site
+      required:
+        - geometry
+        - coordinates
+        - plantDate
+        - species
+        - captureMode
+    LocationGUID:
+      type: string
+      title: LocationGUID
+      pattern: 'loc_[a-zA-Z0-9]{24}'
+      minLength: 29
+      maxLength: 29
+      example: loc_2rHqfXfCqJUJSBRgwXtzXnTU7
+      x-examples:
+        example: loc_2rHqfXfCqJUJSBRgwXtzXnTU7
+      description: The global unique id of a PlantLocation object
+    ProjectGUID:
+      type: string
+      title: ProjectGUID
+      pattern: 'proj_[a-zA-Z0-9]{24}'
+      minLength: 29
+      maxLength: 29
+      example: proj_bBIQoUNyMkFL36aesi2a3a1d
+      x-examples:
+        example-1: proj_bBIQoUNyMkFL36aesi2a3a1d
+      description: The global unique id of a PlantProject object
+    PlantLocationUpdateRequest:
+      title: PlantLocationUpdateRequest
+      type: object
+      description: ''
+      x-examples:
+        example-1:
+          geometry: {}
+      properties:
+        geometry:
+          type: string
+        plantLocation:
+          $ref: '#/components/schemas/LocationGUID'
+      required:
+        - geometry
+    SpeciesRecord:
+      title: SpeciesRecord
+      type: object
+      properties:
+        descriptor:
+          type: string
+        treeCount:
+          type: integer
+      x-examples:
+        example-1:
+          descriptor: Apples
+          treeCount: 50
+        example-2:
+          descriptor: Mahogany
+          treeCount: 200
+    CoordinateGUID:
+      type: string
+      title: CoordinateGUID
+      pattern: 'coord_[a-zA-Z0-9]{24}'
+      minLength: 30
+      maxLength: 30
+      example: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+      x-examples:
+        example: coord_DWWfQGGpIqo0PuLWe7JTUy3X
+      description: The global unique id of a PlantLocationCoordinate object
+    LocationGeometry:
+      title: PlantLocationGeometry
+      type: object
+      required:
+        - type
+        - coordinates
+      oneOf:
+        - description: A Point geometry
+          properties:
+            type:
+              type: string
+              example: Point
+              pattern: ^Point$
+            coordinates:
+              $ref: '#/components/schemas/GeometryDefinitions/position'
+          required:
+            - type
+            - coordinates
+        - properties:
+            type:
+              type: string
+              example: Polygon
+              pattern: ^Polygon$
+            coordinates:
+              $ref: '#/components/schemas/GeometryDefinitions/polygon'
+          required:
+            - type
+            - coordinates
+      x-examples:
+        Point Geometry:
+          type: Point
+          coordinates:
+            - -90.66840648651123
+            - 18.682146549182555
+        Polygon Geometry:
+          type: Polygon
+          coordinates:
+            - - - -90.66840648651123
+                - 18.682146549182555
+              - - -90.6542444229126
+                - 18.682146549182555
+              - - -90.6542444229126
+                - 18.688895002112325
+              - - -90.66840648651123
+                - 18.688895002112325
+              - - -90.66840648651123
+                - 18.682146549182555
+      description: The PlantLocationGeometry is a GeoJSON geometry of either type `Point` or `Polygon`. No other geometry types are supported.
+    PlantLocationGeometry:
+      title: PlantLocationGeometry
+      type: object
+      properties:
+        id:
+          type: string
+  securitySchemes:
+    API Key - 1:
+      name: API Key
+      type: apiKey
+      in: query
