@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="getUserTodosRealtime()">
+
+    <h1>Welcome to Special Todo App</h1>
+    <p>Place to manage your shedule.</p>
+
+
+    Todo: <input type="text" name="todo" id="todo-item">
+
+    <button onclick='addTodoItem()'>Add Todo</button>
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+
+
+
+    <script>
+        // TODO: Replace the following with your app's Firebase project configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDMMCPYd6DIsl_YRBPfXrgExlhpd6avqZM",
+            authDomain: "testing-2b480.firebaseapp.com",
+            databaseURL: "https://testing-2b480.firebaseio.com",
+            projectId: "testing-2b480",
+            storageBucket: "testing-2b480.appspot.com",
+            messagingSenderId: "467025782581",
+            appId: "1:467025782581:web:21f526a0102d9584784e7c",
+            measurementId: "G-3GFBX03X1Z"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
