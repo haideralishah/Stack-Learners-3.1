@@ -11,6 +11,12 @@
 
     Email: <input type="email" name="email" id="email" />
     Password: <input type="password" name="password" id="password" />
+    User Name: <input type="text" name="username" id="username" />
+    Upload Avatar: <input type="file" id='profile-pic' />
+    Role:
+    Restaurants: <input type="radio" name="userrole" value="restaurants" onclick="userRoleDefine(this.value)" />
+    Customer: <input type="radio" name="userrole" value="customers" onclick="userRoleDefine(this.value)" />
+
     <button onclick="signupUser()">Signup</button>
 
     <button onclick="signin()">Signin</button>

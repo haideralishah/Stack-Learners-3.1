@@ -1,14 +1,43 @@
 var emailEl = document.getElementById('email');
 var passwordEl = document.getElementById('password');
+var usernameEl = document.getElementById('username');
+var profilePicEl = document.getElementById('profile-pic');
+var userRoleEl;
+
 var auth = firebase.auth();
 var db = firebase.firestore();
 var storage = firebase.storage();
 
+function userRoleDefine(userRole) {
+    userRoleEl = userRole
+}
+
+
 function signupUser() {
+
+
     auth.createUserWithEmailAndPassword(emailEl.value, passwordEl.value)
         .then(function (success) {
             console.log(success, 'user registerd successfully.');
-            redirectToHome();
+            var imageFile = profilePicEl.files[0];
+            var imagesRef = storage.ref().child('dp/' + profilePicEl.files[0].name);
+            imagesRef.put(imageFile)
+                .then(function (snapshot) {
+                    imagesRef.getDownloadURL()
+                        .then(function (result) {
+                            console.log(result, 'URL =>');
+                            db.collection("users").add({
+                                email: emailEl.value,
+                                profilePic: result,
+                                userName: usernameEl.value,
+                                userRole: userRoleEl,
+                                uid: success.user.uid
+                            })
+                                .then(function () {
+                                    redirectToHome()
+                                })
+                        });
+                })
         })
         .catch(function (error) {
             console.log(error);
@@ -18,9 +47,16 @@ function signupUser() {
 
 function signin() {
     auth.signInWithEmailAndPassword(emailEl.value, passwordEl.value)
-        .then(function (user) {
-            console.log('user', user.user.uid);
-            redirectToHome();
+        .then(function (success) {
+            console.log('user', success.user.uid);
+            db.collection("users").where("uid", "==", success.user.uid).get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        console.log(doc.id, doc.data());
+                        localStorage.setItem('userData', JSON.stringify(doc.data()));
+                        redirectToHome();
+                    });
+                });
         })
         .catch(function (error) {
             console.log('error', error);
@@ -45,7 +81,7 @@ function addTodoItem() {
         var uploadTask = imagesRef.put(imageFile);
         uploadTask.snapshot.ref.getDownloadURL()
             .then(function (url) {
-                console.log('URL => ', url);                
+                console.log('URL => ', url);
                 db.collection("todo").add({
                     todo: todo.value,
                     uid: auth.currentUser.uid,
@@ -123,6 +159,10 @@ function addTodoItem() {
 var unsubscribe;
 
 function getUserTodosRealtime() {
+    var userData = localStorage.getItem('userData');
+    userData = JSON.parse(userData);
+    document.getElementById('dp').src = userData.profilePic
+
     var uid = JSON.parse(localStorage.getItem('userInfo')).uid;
     unsubscribe = db.collection("todo").where("uid", "==", uid)
         .onSnapshot(function (snapshot) {
@@ -163,8 +203,8 @@ function makeListing(todoItem) {
 
     var imgEl = document.createElement('img');
     imgEl.setAttribute('src', todoObject.todoImage)
-    imgEl.setAttribute('width',"50");
-    imgEl.setAttribute('height',"50");
+    imgEl.setAttribute('width', "50");
+    imgEl.setAttribute('height', "50");
     p.appendChild(imgEl);
 
     var deleteBtn = document.createElement('button');
