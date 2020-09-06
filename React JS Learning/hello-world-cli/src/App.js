@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import React, { Component } from 'react';
+// import logo from './logo.svg';
+// import './App.css';
 
 // function App() {
 //   return (
@@ -24,14 +24,40 @@ import './App.css';
 //   );
 // }
 
-class App extends React.Component {
-  render() {
-    return (
-      <h1>Hello World</h1>
-    )
-  }
-}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { Component } from 'react';
+import Student from './components/Student';
+
+// class App extends Component {
+//   render() {
+//     return (
+    //   <h1>Hello World</h1>           
+
+        //React.createElement('h1', null, 'Hello World')
+//     )
+//   }
+// }
+
+const App = () => <Student />;
 
 export default App;
