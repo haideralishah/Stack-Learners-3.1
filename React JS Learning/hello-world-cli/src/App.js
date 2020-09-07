@@ -47,17 +47,20 @@
 
 import React, { Component } from 'react';
 import Student from './components/Student';
-
+import StopWatch from './components/Stopwatch';
+import Lifecycles from './components/Lifecycles';
 // class App extends Component {
 //   render() {
 //     return (
-    //   <h1>Hello World</h1>           
+//   <h1>Hello World</h1>           
 
-        //React.createElement('h1', null, 'Hello World')
+//React.createElement('h1', null, 'Hello World')
 //     )
 //   }
 // }
 
-const App = () => <Student />;
+// const App = () => <Student />;
+const App = () => <StopWatch />;
+// const App = () => <Lifecycles topic="React JS" />;
 
 export default App;

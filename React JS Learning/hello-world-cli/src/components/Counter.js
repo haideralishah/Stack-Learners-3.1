@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 class Counter extends Component {
     state = {
         counter: 0,
-        changeDefault: 1,       
+        changeDefault: 1,
     }
     add = () => {
         this.setState({ counter: this.state.counter + this.state.changeDefault });
@@ -10,6 +10,11 @@ class Counter extends Component {
     updateValues = (event) => {
         this.setState({ changeDefault: Number(event.target.value) });
     }
+
+    componentWillUnmount() {
+        console.log('component is going to be removed.');
+    }
+
     render() {
         console.log('render called.');
         return (
