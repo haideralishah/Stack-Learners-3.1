@@ -26,11 +26,12 @@ class Student extends Component {
             <div>
                 <StudentBasicInfo studentInfo={basicData} />
                 <TeacherRemarks remarks={basicData} />
-                {
+                <Counter />
+                {/* {
                     this.state.showCounter ?
                         <Counter /> :
                         null
-                }
+                } */}
             </div>
         )
     }

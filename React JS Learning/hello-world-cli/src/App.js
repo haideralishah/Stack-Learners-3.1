@@ -49,6 +49,9 @@ import React, { Component } from 'react';
 import Student from './components/Student';
 import StopWatch from './components/Stopwatch';
 import Lifecycles from './components/Lifecycles';
+import Listing from './components/Listing';
+import UserInput from './components/Userinput';
+
 // class App extends Component {
 //   render() {
 //     return (
@@ -60,7 +63,10 @@ import Lifecycles from './components/Lifecycles';
 // }
 
 // const App = () => <Student />;
-const App = () => <StopWatch />;
+// const App = () => <StopWatch />;
 // const App = () => <Lifecycles topic="React JS" />;
+// const App = () => <Listing />;
+const App = () => <UserInput />;
+
 
 export default App;

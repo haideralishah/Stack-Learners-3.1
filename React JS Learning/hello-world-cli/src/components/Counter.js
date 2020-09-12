@@ -8,8 +8,12 @@ class Counter extends Component {
         this.setState({ counter: this.state.counter + this.state.changeDefault });
     }
     updateValues = (event) => {
-        this.setState({ changeDefault: Number(event.target.value) });
+        this.setState({ changeDefault: Number(event.target.value) });        
     }
+    // updateValues(userName, rollNumber, event) {
+    //     console.log(userName,rollNumber)
+    //     this.setState({ changeDefault: Number(event.target.value) });
+    // }
 
     componentWillUnmount() {
         console.log('component is going to be removed.');
@@ -22,7 +26,7 @@ class Counter extends Component {
                 <h1>{this.state.counter}</h1>
                 <span>It will increment by {this.state.changeDefault}.</span>
                 <br />
-                <span>change by:</span>  <input value={this.state.changeDefault} onChange={this.updateValues} />
+                <span>change by:</span>  <input value={this.state.changeDefault} onChange={this.updateValues.bind(this)} />
                 <br />
                 <button onClick={this.add}>Add</button>
             </div>
