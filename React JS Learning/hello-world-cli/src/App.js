@@ -51,6 +51,7 @@ import StopWatch from './components/Stopwatch';
 import Lifecycles from './components/Lifecycles';
 import Listing from './components/Listing';
 import UserInput from './components/Userinput';
+import Routes from './route';
 
 // class App extends Component {
 //   render() {
@@ -66,7 +67,9 @@ import UserInput from './components/Userinput';
 // const App = () => <StopWatch />;
 // const App = () => <Lifecycles topic="React JS" />;
 // const App = () => <Listing />;
-const App = () => <UserInput />;
+// const App = () => <UserInput />;
+
+const App = () => <Routes />;
 
 
 export default App;

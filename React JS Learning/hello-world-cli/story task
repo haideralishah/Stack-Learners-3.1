@@ -1,0 +1,16 @@
+make a child component (Story.js)
+    -image
+    -title
+    -few paragraphs
+
+make a parent component
+    - set default states [
+            {imageSrc: '', storyTitle, story},
+            {imageSrc: '', storyTitle, story},
+            {imageSrc: '', storyTitle, story},
+            {imageSrc: '', storyTitle, story},
+            {imageSrc: '', storyTitle, story},
+        ]
+
+
+in parent component use .map method to show these stories using Story.js child component
