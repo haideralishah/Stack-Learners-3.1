@@ -1,0 +1,26 @@
+
+initialstates :{
+    breakfast: 'Bengan Tandoor',
+    lunch: 'dal chawal',
+    dinner: 'bengan tandoor'
+}
+
+
+
+
+
+
+reducer
+switch(initialstates)
+    case 'CHANGE_BREAKFAST'
+
+
+   case 'CHANGE_LUNCH'
+
+   default
+
+
+dispatch({
+    type:'CHANGE_BREAKFAST',
+    payload:'Bengan Tandoor'
+})
