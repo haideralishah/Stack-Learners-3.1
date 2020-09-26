@@ -1,0 +1,34 @@
+arr.map()
+
+conditional rendering
+() ? () : ()
+
+
+props (read only)
+states (read and write)
+
+life cycle events (class components)
+
+react router dom
+
+
+function components
+first parameter (props)
+useState()
+useEffect()
+useCustomHook() // name of your own choise
+
+class components
+this.props
+this.state
+
+react forms
+react events
+
+
+redux
+context 
+
+
+
+

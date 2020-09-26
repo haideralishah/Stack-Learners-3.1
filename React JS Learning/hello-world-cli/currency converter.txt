@@ -1,0 +1,14 @@
+//only use function component
+
+currency converter
+
+dropdown
+    usd
+    btc
+    aed
+
+2 form fields
+
+selected currency (default value 1)
+
+PKR: 165
