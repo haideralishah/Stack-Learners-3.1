@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { changeUserName } from '../Store/action/auth';
 const Home = () => {
-
     const dispatch = useDispatch();
     const userName = useSelector(({ auth }) => auth.userName);
     const [name, setName] = useState('');

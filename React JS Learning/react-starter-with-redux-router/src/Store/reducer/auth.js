@@ -1,10 +1,19 @@
-import { CHANGE_AUTH, CHANGE_ROLLNUMBER, CHANGE_USERNAME } from "../constant/ActionTypes";
+import {
+    CHANGE_AUTH,
+    CHANGE_ROLLNUMBER,
+    CHANGE_USERNAME,
+    CHANGE_AUTH_BOOL,
+    TOGGLE_BULB,
+    USER_REGISTERED
+} from "../constant/ActionTypes";
 
 
 const INIT_STATE = {
     auth: true,
+    user: {},
     userName: 'haider',
-    rollNumber: 2655
+    rollNumber: 2655,
+    bulb: false
 };
 
 
@@ -17,6 +26,12 @@ export default (state = INIT_STATE, action) => {
                 userName: 'Ali'
             }
         }
+        case CHANGE_AUTH_BOOL: {
+            return {
+                ...state,
+                auth: !state.auth,
+            }
+        }
 
         case CHANGE_ROLLNUMBER: {
             return {
@@ -24,12 +39,22 @@ export default (state = INIT_STATE, action) => {
                 rollNumber: action.payload
             }
         }
-        case CHANGE_USERNAME: {
+        case CHANGE_USERNAME:
             return {
                 ...state,
                 userName: action.payload
             }
-        }
+
+        case TOGGLE_BULB:
+            return {
+                ...state,
+                bulb: !state.bulb
+            }
+        case USER_REGISTERED:
+            return {
+                ...state,
+                user: action.payload
+            }
 
         default:
             return state;

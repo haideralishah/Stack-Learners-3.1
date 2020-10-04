@@ -1,0 +1,24 @@
+initialstates :{
+    breakfast: 'chai paratha',
+    lunch: 'dal chawal',
+    dinner: 'bengan tandoor'
+}
+
+components : {
+    HR,
+    Trainings,
+    Operations,
+    Senior Management
+}
+
+HR: {
+    import breakfast
+    Abdul,
+    Rafey,
+    Advany
+}
+
+senior Management:{
+    Shazada,
+    Ahmed
+}
