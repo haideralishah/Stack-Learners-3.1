@@ -10,7 +10,7 @@ import {
 
 const INIT_STATE = {
     auth: true,
-    user: {},
+    user: null,
     userName: 'haider',
     rollNumber: 2655,
     bulb: false
