@@ -1,4 +1,4 @@
-import { CHANGE_AUTH, CHANGE_ROLLNUMBER, CHANGE_USERNAME, TOGGLE_BULB, USER_REGISTERED } from '../constant/ActionTypes';
+import { CHANGE_AUTH, CHANGE_ROLLNUMBER, CHANGE_USERNAME, TOGGLE_BULB, USER_REGISTERED, USER_LOGOUT } from '../constant/ActionTypes';
 import * as firebase from 'firebase';
 var firebaseConfig = {
     apiKey: "AIzaSyDMMCPYd6DIsl_YRBPfXrgExlhpd6avqZM",
@@ -66,7 +66,7 @@ export function signin(user) {
         let userFound = await firebase.firestore().collection('users').where("uid", "==", user.uid).get();
         userFound.forEach(function (doc) {
             // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
+            // console.log(doc.id, " => ", doc.data());
             dispatch({ type: USER_REGISTERED, payload: user })
         });
 
@@ -100,6 +100,14 @@ export function fetchUserInfo(uid) {
 
 
 
+
+export function logout() {
+    return async dispatch => {
+        console.log('logout');
+        await firebase.auth().signOut();
+        dispatch({ type: USER_LOGOUT })
+    }
+}
 
 
 

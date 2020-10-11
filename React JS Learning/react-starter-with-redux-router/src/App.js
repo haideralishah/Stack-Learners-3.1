@@ -20,19 +20,18 @@ import { USER_REGISTERED } from './Store/constant/ActionTypes';
 import { fetchUserInfo } from './Store/action/auth'
 
 function App() {
-  const user = useSelector(({ auth }) => auth.user)
   // console.log(user, 'user');
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     firebase.auth().onAuthStateChanged((auth) => {
-      // console.log('login state changed ---------------', auth);
       if (auth) {
         dispatch(fetchUserInfo(auth.uid));
       }
     })
   }, []);
-
+  
+  const user = useSelector(({ auth }) => auth.user)
 
   return (
     <Router>

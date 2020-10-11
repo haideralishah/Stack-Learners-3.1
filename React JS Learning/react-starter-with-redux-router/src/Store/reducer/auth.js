@@ -4,7 +4,8 @@ import {
     CHANGE_USERNAME,
     CHANGE_AUTH_BOOL,
     TOGGLE_BULB,
-    USER_REGISTERED
+    USER_REGISTERED,
+    USER_LOGOUT
 } from "../constant/ActionTypes";
 
 
@@ -54,6 +55,11 @@ export default (state = INIT_STATE, action) => {
             return {
                 ...state,
                 user: action.payload
+            }
+        case USER_LOGOUT:
+            return {
+                ...state,
+                user: null
             }
 
         default:
